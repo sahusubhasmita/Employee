@@ -1,0 +1,36 @@
+﻿@model List<Employee_Table.Models.Domain.Employee>
+@{
+}
+
+<h1>Employees</h1><br/>
+<form method="get" asp-action="Index">
+	<input type="search" class="form-control" placeholder="Enter EMployee Name or Department" name="Empsearch" style="width:500px"/> <br/>
+</form>
+
+<table class="table" border="2" >
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Salary</th>
+			<th>Date of Birth</th>
+			<th>Department</th>
+			<th> </th>
+		</tr> 
+	</thead>
+	<tbody>
+		@foreach(var employee in Model) 
+		{
+			<tr>
+				<td>@employee.Id</td>
+				<td>@employee.Name</td>
+				<td>@employee.Email</td>
+				<td>@employee.Salary</td>
+				<td>@employee.DateOfBirth.ToString("dd-mm-yyyy")</td>
+				<td>@employee.Department</td> 
+				<td><a href="Employees/View/@employee.Id">View</a></td>
+			</tr>
+		}
+	</tbody>
+</table>
